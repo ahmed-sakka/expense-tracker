@@ -28,16 +28,29 @@ const DUMMY_EXPENSES = [
 const App = () => {
   const [expenses, setExpenses] = useState(DUMMY_EXPENSES);
 
+  const expensesYears = expenses.map((expense) => {
+    return expense.date.getFullYear();
+  });
+  const minYear = Math.min(...expensesYears);
+  const maxYear = Math.max(...expensesYears);
+
+  const [filteredYear, setFilteredYear] = useState(maxYear.toString());
+
+  const filterChangeHandler = (selectedYear) => {
+    setFilteredYear(selectedYear);
+  };
+
   const addExpenseHandler = (expense) => {
     setExpenses((prevExpenses) => {
       return [expense, ...prevExpenses];
     });
+    setFilteredYear(expense.date.getFullYear().toString()); // filter by the year of the added expense
   };
 
   return (
     <div>
       <NewExpense onAddExpense={addExpenseHandler} />
-      <Expenses items={expenses} />
+      <Expenses items={expenses} minYear={minYear} maxYear ={maxYear} filteredYear={filteredYear} onSelectYear={filterChangeHandler} />
     </div>
   );
 };
