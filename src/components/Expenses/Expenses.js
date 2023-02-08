@@ -4,7 +4,7 @@ import Card from '../UI/Card';
 import ExpensesFilter from './ExpensesFilter';
 import ExpensesList from './ExpensesList';
 import ExpensesChart from './ExpensesChart';
-import './Expenses.css';
+import classes from './Expenses.module.css';
 
 const Expenses = (props) => {
 
@@ -14,7 +14,7 @@ const Expenses = (props) => {
 
   return (
     <div>
-      <Card className='expenses'>
+      <Card className={classes.expenses}>
         <ExpensesFilter
           min={props.minYear}
           max={props.maxYear}
