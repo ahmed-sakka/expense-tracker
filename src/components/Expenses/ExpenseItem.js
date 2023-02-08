@@ -5,6 +5,9 @@ import Card from '../UI/Card';
 import classes from './ExpenseItem.module.css';
 
 const ExpenseItem = (props) => {
+  const handleDeleteItem = () => {
+    props.onDeleteItem(props.id);
+  };
   return (
     <li>
       <Card className={classes['expense-item']}>
@@ -12,6 +15,9 @@ const ExpenseItem = (props) => {
         <div className={classes['expense-item__description']}>
           <h2>{props.title}</h2>
           <div className={classes['expense-item__price']}>${props.amount}</div>
+          <div className={classes['expense-item__delete']}>
+            <button onClick={handleDeleteItem}>Delete</button>
+          </div>
         </div>
       </Card>
     </li>

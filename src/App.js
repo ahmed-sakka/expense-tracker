@@ -27,10 +27,29 @@ const App = () => {
     setFilteredYear(expense.date.getFullYear().toString()); // filter by the year of the added expense
   };
 
+  const deleteExpenseHandler = expenseId => {
+    setExpenses((prevExpenses) => {
+      const deletedExpense = prevExpenses.filter(expense => expense.id === expenseId)[0];
+      const updatedExpenses = prevExpenses.filter(expense => expense.id !== expenseId);
+      // update filtered year if all expenses of selected year are deleted
+      if (updatedExpenses.length > 0 && updatedExpenses.filter(expense => expense.date.getFullYear() === deletedExpense.date.getFullYear()).length === 0) {
+        setFilteredYear(updatedExpenses[0].date.getFullYear().toString());
+      }
+      return updatedExpenses;
+    });
+
+  };
+
   return (
     <div>
       <NewExpense onAddExpense={addExpenseHandler} />
-      <Expenses items={expenses} minYear={minYear} maxYear ={maxYear} filteredYear={filteredYear} onSelectYear={filterChangeHandler} />
+      <Expenses
+        items={expenses}
+        minYear={minYear}
+        maxYear={maxYear}
+        filteredYear={filteredYear}
+        onSelectYear={filterChangeHandler}
+        onDeleteItem={deleteExpenseHandler} />
     </div>
   );
 };

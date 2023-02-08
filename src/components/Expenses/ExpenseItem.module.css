@@ -35,6 +35,33 @@
   border-radius: 12px;
 }
 
+.expense-item__delete button {
+  font: inherit;
+  cursor: pointer;
+  padding: 0.5rem;
+  border: 1px solid #720337;
+  background-color: #720337;
+  color: white;
+  border-radius: 12px;
+}
+
+.expense-item__delete button:hover,
+.expense-item__delete button:active {
+  background-color: #a5024e;
+  border-color: #a5024e;
+}
+
+.expense-item__delete button.alternative {
+  color: #220131;
+  border-color: transparent;
+  background-color: transparent;
+}
+
+.expense-item__delete button.alternative:hover,
+.expense-item__delete button.alternative:active {
+  background-color: #ddb3f8;
+}
+
 @media (min-width: 580px) {
   .expense-item__description {
     flex-direction: row;
