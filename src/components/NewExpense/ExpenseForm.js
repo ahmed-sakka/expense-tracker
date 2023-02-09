@@ -57,7 +57,7 @@ const ExpenseForm = (props) => {
   };
 
   return (
-    <div>
+    <>
       {error && (
         <Modal
           title={error.title}
@@ -100,7 +100,7 @@ const ExpenseForm = (props) => {
           <Button type='submit'>Add Expense</Button>
         </div>
       </form>
-    </div>
+    </>
   );
 };
 

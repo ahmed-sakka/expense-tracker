@@ -13,18 +13,16 @@ const Expenses = (props) => {
   });
 
   return (
-    <div>
-      <Card className={classes.expenses}>
-        <ExpensesFilter
-          min={props.minYear}
-          max={props.maxYear}
-          selected={props.filteredYear}
-          onChangeFilter={props.onSelectYear}
-        />
-        <ExpensesChart expenses={filteredExpenses} />
-        <ExpensesList items={filteredExpenses} onDeleteItem={props.onDeleteItem} />
-      </Card>
-    </div>
+    <Card className={classes.expenses}>
+      <ExpensesFilter
+        min={props.minYear}
+        max={props.maxYear}
+        selected={props.filteredYear}
+        onChangeFilter={props.onSelectYear}
+      />
+      <ExpensesChart expenses={filteredExpenses} />
+      <ExpensesList items={filteredExpenses} onDeleteItem={props.onDeleteItem} />
+    </Card>
   );
 };
 
