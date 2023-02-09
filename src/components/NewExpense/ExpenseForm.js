@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 
+import Button from '../UI/Button';
 import classes from './ExpenseForm.module.css';
 
 const ExpenseForm = (props) => {
@@ -90,8 +91,8 @@ const ExpenseForm = (props) => {
         </div>
       </div>
       <div className={classes['new-expense__actions']}>
-        <button type="button" onClick={props.onCancel}>Cancel</button>
-        <button type='submit'>Add Expense</button>
+        <Button type="button" onClick={props.onCancel}>Cancel</Button>
+        <Button type='submit'>Add Expense</Button>
       </div>
     </form>
   );

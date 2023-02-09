@@ -2,6 +2,7 @@ import React from 'react';
 
 import ExpenseDate from './ExpenseDate';
 import Card from '../UI/Card';
+import Button from '../UI/Button';
 import classes from './ExpenseItem.module.css';
 
 const ExpenseItem = (props) => {
@@ -15,9 +16,7 @@ const ExpenseItem = (props) => {
         <div className={classes['expense-item__description']}>
           <h2>{props.title}</h2>
           <div className={classes['expense-item__price']}>${props.amount}</div>
-          <div className={classes['expense-item__delete']}>
-            <button onClick={handleDeleteItem}>Delete</button>
-          </div>
+          <Button size='sm' variant='danger' onClick={handleDeleteItem}>Delete</Button>
         </div>
       </Card>
     </li>
